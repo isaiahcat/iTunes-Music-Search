@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -44,6 +45,13 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
     implementation "com.google.android.material:material:$rootProject.materialVersion"
+
+    //Dagger
+    implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
+    compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:$rootProject.daggerVersion"
+    kapt "com.squareup.inject:assisted-inject-processor-dagger2:$rootProject.daggerVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
+    kapt "androidx.hilt:hilt-compiler:$rootProject.hiltViewModelVersion"
 
     //Retrofit2
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
