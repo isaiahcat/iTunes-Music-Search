@@ -8,6 +8,7 @@ data class Track(
     val artworkUrl30: String,
     val artworkUrl60: String,
     val artworkUrl100: String,
+    val trackPrice: Float,
     val trackExplicitness: String,
     val trackTimeMillis: String,
     val currency: String,

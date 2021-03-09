@@ -12,6 +12,7 @@
 
     <dimen name="header_margin">24dp</dimen>
 
-    <dimen name="track_icon_height">160dp</dimen>
+    <dimen name="track_icon_width">100dp</dimen>
+    <dimen name="track_icon_height">100dp</dimen>
 
 </resources>
