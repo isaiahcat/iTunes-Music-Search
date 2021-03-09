@@ -1,7 +1,7 @@
 package com.jhaiasi.itunesmusicsearch.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.data.SearchResponse
+import com.jhaiasi.itunesmusicsearch.data.SearchResponse
 import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

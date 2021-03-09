@@ -1,4 +1,4 @@
-package com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.data
+package com.jhaiasi.itunesmusicsearch.data
 
 import com.jhaiasi.itunesmusicsearch.data.Track
 

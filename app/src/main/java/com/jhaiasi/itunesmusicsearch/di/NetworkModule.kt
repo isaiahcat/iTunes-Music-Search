@@ -1,4 +1,4 @@
-package com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.di
+package com.jhaiasi.itunesmusicsearch.di
 
 import com.jhaiasi.itunesmusicsearch.network.MusicService
 import dagger.Module
@@ -7,8 +7,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import javax.inject.Singleton
 
-@InstallIn(ApplicationComponent::class)
 @Module
+@InstallIn(ApplicationComponent::class)
 class NetworkModule {
 
     @Singleton
