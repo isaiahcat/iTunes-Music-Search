@@ -1,4 +1,4 @@
-package com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.data
+package com.jhaiasi.itunesmusicsearch.data
 
 data class Track(
     val trackId: String,

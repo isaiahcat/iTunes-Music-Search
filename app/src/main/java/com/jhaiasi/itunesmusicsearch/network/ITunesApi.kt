@@ -1,3 +1,3 @@
-package com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.network
+package com.jhaiasi.itunesmusicsearch.network
 
 interface ITunesApi
