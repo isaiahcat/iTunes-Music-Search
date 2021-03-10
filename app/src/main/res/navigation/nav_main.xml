@@ -12,12 +12,22 @@
 
         <action
             android:id="@+id/action_search_fragment_to_track_fragment"
-            app:destination="@id/track_fragment" />
+            app:destination="@id/track_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/track_fragment"
         android:name="com.jhaiasi.itunesmusicsearch.ui.TrackFragment"
-        tools:layout="@layout/fragment_track" />
+        tools:layout="@layout/fragment_track">
+
+        <argument
+            android:name="track"
+            app:argType="com.jhaiasi.itunesmusicsearch.data.Track"
+            app:nullable="true" />
+    </fragment>
 
 </navigation>

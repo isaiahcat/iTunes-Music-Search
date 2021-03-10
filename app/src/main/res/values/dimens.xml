@@ -15,4 +15,6 @@
     <dimen name="track_icon_width">100dp</dimen>
     <dimen name="track_icon_height">100dp</dimen>
 
+    <dimen name="track_detail_icon_height">400dp</dimen>
+
 </resources>

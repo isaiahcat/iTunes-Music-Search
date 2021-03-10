@@ -9,7 +9,9 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.jhaiasi.itunesmusicsearch.R
 import com.jhaiasi.itunesmusicsearch.data.Track
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 @BindingAdapter("isGone")
 fun bindIsGone(view: View, isGone: Boolean) {
@@ -38,5 +40,41 @@ fun bindPrice(view: TextView, track: Track?) {
         val format: NumberFormat = NumberFormat.getCurrencyInstance(Locale.getDefault())
         format.currency = Currency.getInstance(track.currency)
         view.text = format.format(track.trackPrice)
+    }
+}
+
+@BindingAdapter("date")
+fun bindDate(view: TextView, date: Date?) {
+    date?.let {
+        val dateFormat = SimpleDateFormat("MMMM dd, yyyy", Locale.getDefault())
+        dateFormat.timeZone = TimeZone.getDefault()
+        view.text = dateFormat.format(date)
+    }
+}
+
+@BindingAdapter("time")
+fun bindTime(view: TextView, time: Long?) {
+    time?.let {
+        view.text = String.format(
+            "%02d:%02d",
+            TimeUnit.MILLISECONDS.toMinutes(time),
+            TimeUnit.MILLISECONDS.toSeconds(time) - TimeUnit.MINUTES.toSeconds(
+                TimeUnit.MILLISECONDS.toMinutes(time)
+            )
+        )
+    }
+}
+
+@BindingAdapter("explicitness")
+fun bindExplicitness(view: TextView, explicit: String?) {
+    explicit?.let {
+        if (explicit == "explicit") {
+            view.setCompoundDrawablesWithIntrinsicBounds(
+                0,
+                0,
+                R.drawable.ic_explicit_music,
+                0
+            )
+        }
     }
 }

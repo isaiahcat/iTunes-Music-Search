@@ -6,6 +6,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.jhaiasi.itunesmusicsearch.R
 import com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.ui.SearchAdapter
 import com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.ui.TrackOnClickListener
@@ -50,6 +51,9 @@ class SearchFragment : Fragment(), TrackOnClickListener {
             }
         }
 
+        //TODO
+        viewModel.searchMusic("jack johnson")
+
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -72,6 +76,10 @@ class SearchFragment : Fragment(), TrackOnClickListener {
     }
 
     override fun onTrackClicked(track: Track) {
-        // TODO: Goto detail fragment
+        findNavController().navigate(
+            SearchFragmentDirections.actionSearchFragmentToTrackFragment(
+                track
+            )
+        )
     }
 }

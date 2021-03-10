@@ -1,7 +1,9 @@
 package com.jhaiasi.itunesmusicsearch.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.network.DateConverter
 import com.jhaiasi.itunesmusicsearch.data.SearchResponse
+import com.squareup.moshi.Moshi
 import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -10,6 +12,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
+import java.util.*
 
 interface MusicService {
 
@@ -21,11 +24,17 @@ interface MusicService {
         private const val BASE_URL = "https://itunes.apple.com"
 
         fun init(): MusicService = Retrofit.Builder()
-            .client(OkHttpClient().newBuilder().addInterceptor(HttpLoggingInterceptor().apply {
-                level = HttpLoggingInterceptor.Level.BODY
-            }).build())
+            .client(
+                OkHttpClient().newBuilder().addInterceptor(HttpLoggingInterceptor().apply {
+                    level = HttpLoggingInterceptor.Level.BODY
+                }).build()
+            )
             .baseUrl(BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(
+                MoshiConverterFactory.create(
+                    Moshi.Builder().add(Date::class.java, DateConverter()).build()
+                )
+            )
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
             .create(MusicService::class.java)
