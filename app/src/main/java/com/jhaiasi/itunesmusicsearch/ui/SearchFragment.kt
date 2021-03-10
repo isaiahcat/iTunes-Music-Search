@@ -1,11 +1,12 @@
 package com.jhaiasi.itunesmusicsearch.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.jhaiasi.itunesmusicsearch.R
 import com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.ui.SearchAdapter
 import com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.ui.TrackOnClickListener
 import com.jhaiasi.itunesmusicsearch.data.Track
@@ -35,9 +36,25 @@ class SearchFragment : Fragment(), TrackOnClickListener {
             }
         }
 
-        viewModel.searchMusic("jack johnson")
-
+        setHasOptionsMenu(true)
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_search, menu)
+
+        val searchView = menu.findItem(R.id.search).actionView as SearchView
+        searchView.queryHint = getString(R.string.search_hint)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let { viewModel.searchMusic(it) }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+        })
     }
 
     override fun onTrackClicked(track: Track) {

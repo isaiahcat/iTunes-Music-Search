@@ -34,7 +34,7 @@ class SearchAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.setClickListener {
-
+                binding.track?.let { onClickListener.onTrackClicked(it) }
             }
         }
 
