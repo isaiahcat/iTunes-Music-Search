@@ -22,8 +22,6 @@ data class Track(
     val artistViewUrl: String,
     val collectionViewUrl: String,
 
-    val artworkUrl30: String,
-    val artworkUrl60: String,
     val artworkUrl100: String,
 
     val currency: String,
