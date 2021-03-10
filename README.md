@@ -1,15 +1,21 @@
 # iTunes Music Search
 A simple Master-Detail Android Application using search results from iTunes Store API
-[![iTunes Store API](https://i.pinimg.com/736x/cc/c7/de/ccc7dec767c1bd757eaaf0f4e6a8569e.jpg)](https://affiliate.itunes.apple.com/resources/documentation/itunes-storeweb-service-search-api)
+iTunes API Documentation: https://affiliate.itunes.apple.com/resources/documentation/itunes-storeweb-service-search-api
+
+<p align="center">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/home.gif" width="200">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/details.gif" width="200">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/search.gif" width="200">
+</p>
+
+### Architecture
+This application uses MVVM architecture
 
 ### Screenshots
 <p align="center">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/home.png" width="100">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/search.png" width="100">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/details.png" width="100">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/home.gif" width="100">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/details.gif" width="100">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/search.gif" width="100">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/home.png" width="200">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/search.png" width="200">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/details.png" width="200">
 </p>
 
 ### Sample JSON
@@ -33,21 +39,14 @@ A simple Master-Detail Android Application using search results from iTunes Stor
 }
 ```
 
-### Architecture
-This application is implemented with MVVM architecture
-
 ### Libraries Used
-*
-*
-*
+* OkHttp3
+* Navigation
+* Retrofit2
+* Dagger
+* Hilt
 * [Glide](https://bumptech.github.io/glide/)
     * Image loading
-
-Navigation
-Retrofit2
-OkHttp3
-Dagger
-Hilt
 
 ### References
 * [Android MVVM Architecture](https://github.com/MindorksOpenSource/android-mvvm-architecture)
@@ -55,6 +54,6 @@ Hilt
 * [Android Sunflower](https://github.com/android/sunflower)
     * A gardening app illustrating Android development best practices with Android Jetpack
 * [Plaid](https://github.com/nickbutcher/plaid)
-    * Plaid is a showcase of material design that demonstrates the use of material principles to create tactile, bold, understandable UIs
+    * A showcase of material design that demonstrates the use of material principles to create tactile, bold, understandable UIs
 * [RetrofitKotlinDeferred](https://github.com/navi25/RetrofitKotlinDeferred)
     * Simple to Complex Tutorial for making network calls in Android using Retrofit2, Kotlin and its Deferred Type
