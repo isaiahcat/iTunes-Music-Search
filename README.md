@@ -8,8 +8,8 @@ A simple Master-Detail Android Application using search results from [iTunes Sto
 </p>
 </br>
 <p align="center">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/video-search.webm" width="250">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/video-details.png" width="250">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/video-search.gif" width="250">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/video-details.webm" width="250">
   <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/video-no-results.webm" width="250">
 </p>
 that implements MVVM architecture using Dagger2, Room, RxJava, FastAndroidNetworking, PlaceHolderView and AndroidDebugDatabase
