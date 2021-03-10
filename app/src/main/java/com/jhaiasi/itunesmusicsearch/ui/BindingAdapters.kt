@@ -1,5 +1,6 @@
 package com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.ui
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -9,6 +10,15 @@ import com.jhaiasi.itunesmusicsearch.R
 import com.jhaiasi.itunesmusicsearch.data.Track
 import java.text.NumberFormat
 import java.util.*
+
+@BindingAdapter("isGone")
+fun bindIsGone(view: View, isGone: Boolean) {
+    view.visibility = if (isGone) {
+        View.GONE
+    } else {
+        View.VISIBLE
+    }
+}
 
 @BindingAdapter("imageFromUrl")
 fun bindImageFromUrl(view: ImageView, imageUrl: String?) {
