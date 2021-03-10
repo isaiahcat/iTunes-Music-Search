@@ -51,9 +51,6 @@ class SearchFragment : Fragment(), TrackOnClickListener {
             }
         }
 
-        //TODO
-        viewModel.searchMusic("jack johnson")
-
         setHasOptionsMenu(true)
         return binding.root
     }

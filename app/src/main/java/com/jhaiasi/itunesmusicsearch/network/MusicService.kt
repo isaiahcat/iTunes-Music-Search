@@ -16,7 +16,7 @@ import java.util.*
 
 interface MusicService {
 
-    @GET("/search?country=PH&limit=60")
+    @GET("/search?country=PH&media=music&limit=60")
     fun getSearchResultsAsync(@Query("term") keywords: String): Deferred<Response<SearchResponse>>
 
     companion object {
