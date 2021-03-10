@@ -9,16 +9,24 @@ import java.util.*
 @Parcelize
 data class Track(
     val trackId: String,
+
+    val trackName: String,
     val artistName: String,
     val collectionName: String,
-    val trackName: String,
+
     val trackPrice: Float,
     val trackExplicitness: String,
     val trackTimeMillis: Long,
+
+    val trackViewUrl: String,
+    val artistViewUrl: String,
+    val collectionViewUrl: String,
+
     val artworkUrl30: String,
     val artworkUrl60: String,
     val artworkUrl100: String,
-    val releaseDate: Date,
+
     val currency: String,
+    val releaseDate: Date,
     val primaryGenreName: String
 ) : Parcelable
