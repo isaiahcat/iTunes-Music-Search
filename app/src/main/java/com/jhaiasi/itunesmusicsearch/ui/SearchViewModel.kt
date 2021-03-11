@@ -4,6 +4,7 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jhaiasi.itunesmusicsearch.data.MusicRepository
 import com.jhaiasi.itunesmusicsearch.data.Track
 import kotlinx.coroutines.launch
 
