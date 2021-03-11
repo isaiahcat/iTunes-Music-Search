@@ -1,10 +1,9 @@
-package com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.data
+package com.jhaiasi.itunesmusicsearch.data
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.jhaiasi.itunesmusicsearch.data.Track
 import kotlinx.coroutines.flow.Flow
 
 @Dao

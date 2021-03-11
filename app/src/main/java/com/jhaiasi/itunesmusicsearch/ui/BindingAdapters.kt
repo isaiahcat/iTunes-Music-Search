@@ -1,4 +1,4 @@
-package com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.ui
+package com.jhaiasi.itunesmusicsearch.ui
 
 import android.content.Intent
 import android.net.Uri

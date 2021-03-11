@@ -1,10 +1,9 @@
-package com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.data
+package com.jhaiasi.itunesmusicsearch.data
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.jhaiasi.itunesmusicsearch.data.Track
 
 @Database(entities = [Track::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {

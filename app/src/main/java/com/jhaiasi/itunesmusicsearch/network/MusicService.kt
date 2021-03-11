@@ -1,7 +1,6 @@
 package com.jhaiasi.itunesmusicsearch.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.network.DateConverter
 import com.jhaiasi.itunesmusicsearch.data.SearchResponse
 import com.squareup.moshi.Moshi
 import kotlinx.coroutines.Deferred

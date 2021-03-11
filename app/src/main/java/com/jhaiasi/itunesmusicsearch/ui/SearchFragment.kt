@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.jhaiasi.itunesmusicsearch.R
-import com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.ui.SearchAdapter
-import com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.ui.TrackOnClickListener
 import com.jhaiasi.itunesmusicsearch.data.Track
 import com.jhaiasi.itunesmusicsearch.databinding.FragmentSearchBinding
 import dagger.hilt.android.AndroidEntryPoint

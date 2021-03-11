@@ -1,4 +1,4 @@
-package com.jhaiasi.itunesmusicsearch.com.jhaiasi.itunesmusicsearch.network
+package com.jhaiasi.itunesmusicsearch.network
 
 import com.squareup.moshi.*
 import java.text.SimpleDateFormat
