@@ -1,7 +1,15 @@
 # iTunes Music Search
 A simple Master-Detail Android Application using search results from iTunes Store API
 
-iTunes API Documentation: https://affiliate.itunes.apple.com/resources/documentation/itunes-storeweb-service-search-api
+iTunes API Documentation
+
+https://affiliate.itunes.apple.com/resources/documentation/itunes-storeweb-service-search-api
+
+### Overview
+Users are able to
+* Search for music using keywords
+* View track details from the results
+* Go to the iTunes website for song, artist, or collection details
 
 <p align="center">
   <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/home.gif" width="200">
@@ -18,14 +26,15 @@ This application uses Model-View-ViewModel (MVVM) architecture with the followin
 
 ### Screenshots
 <p align="center">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/home.png" width="180">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/search.png" width="180">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/details.png" width="180">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/no-results.png" width="180">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/home.png" width="160">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/search.png" width="160">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/details.png" width="160">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/no-results.png" width="160">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/explicit.png" width="160">
 </p>
 
 ### Sample JSON key-value pairs used for API consumption
-```
+```json
 {
     "trackId": 1440857797,
     "trackName": "Good People",
@@ -46,23 +55,17 @@ This application uses Model-View-ViewModel (MVVM) architecture with the followin
 ```
 
 ### Libraries Used
-* [AppCompat](https://developer.android.com/topic/libraries/support-library/packages#v7-appcompat)
-    * Backward compatibility
-* [Coroutines](https://kotlinlang.org/docs/coroutines-overview.html)
-    * Background operations and handling network calls
-* [Dagger](https://dagger.dev/) & [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
-    * Dependency injection
-* [Glide](https://bumptech.github.io/glide/)
-    * Image loading
-* [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle)
-    * Reactive UI responding to lifecycle events
-* [Navigation](https://developer.android.com/guide/navigation)
-    * In-app navigation
-* [Retrofit2](https://square.github.io/retrofit/) & [OkHttp3](https://square.github.io/okhttp/)
-    * HTTP client for API calls
+* [Android KTX](https://developer.android.com/kotlin/ktx): Core Kotlin extensions for more concise code
+* [AppCompat](https://developer.android.com/topic/libraries/support-library/packages#v7-appcompat): Backward compatibility
+* [Coroutines](https://kotlinlang.org/docs/coroutines-overview.html): Background operations and handling network calls
+* [Dagger](https://dagger.dev/) & [Hilt](https://developer.android.com/training/dependency-injection/hilt-android): Dependency injection
+* [Glide](https://bumptech.github.io/glide/): Image loading
+* [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle): Reactive UI responding to lifecycle events
+* [Navigation](https://developer.android.com/guide/navigation) with [SafeArgs](https://developer.android.com/jetpack/androidx/releases/navigation#safe_args): In-app navigation
+* [Retrofit2](https://square.github.io/retrofit/) & [OkHttp3](https://square.github.io/okhttp/): HTTP client for API calls
 
 ### Gradle Dependencies
-```
+```kotlin
 // build.gradle(Module: app)
 dependencies {
 
@@ -103,11 +106,7 @@ dependencies {
 ```
 
 ### References
-* [Android MVVM Architecture](https://github.com/MindorksOpenSource/android-mvvm-architecture)
-    * A detailed sample app that implements MVVM architecture using Dagger2, Room, RxJava, FastAndroidNetworking, PlaceHolderView and AndroidDebugDatabase
-* [Android Sunflower](https://github.com/android/sunflower)
-    * A gardening app illustrating Android development best practices with Android Jetpack
-* [Plaid](https://github.com/nickbutcher/plaid)
-    * A showcase of material design that demonstrates the use of material principles to create tactile, bold, understandable UIs
-* [RetrofitKotlinDeferred](https://github.com/navi25/RetrofitKotlinDeferred)
-    * Simple to Complex Tutorial for making network calls in Android using Retrofit2, Kotlin and its Deferred Type
+* [Android MVVM Architecture](https://github.com/MindorksOpenSource/android-mvvm-architecture): Detailed sample app that implements MVVM architecture using Dagger2, Room, RxJava, FastAndroidNetworking, PlaceHolderView and AndroidDebugDatabase
+* [Android Sunflower](https://github.com/android/sunflower): Gardening app illustrating Android development best practices with Android Jetpack
+* [Plaid](https://github.com/nickbutcher/plaid): Showcase of material design that demonstrates the use of material principles to create tactile, bold, understandable UIs
+* [RetrofitKotlinDeferred](https://github.com/navi25/RetrofitKotlinDeferred): Simple to Complex Tutorial for making network calls in Android using Retrofit2, Kotlin and its Deferred Type
