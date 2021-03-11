@@ -2,29 +2,33 @@ package com.jhaiasi.itunesmusicsearch.data
 
 import android.os.Parcelable
 import androidx.annotation.Keep
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 import java.util.*
 
 @Keep
+@Entity
 @Parcelize
 data class Track(
-    val trackId: String,
+    @PrimaryKey val trackId: String,
 
-    val trackName: String,
-    val artistName: String,
-    val collectionName: String,
+    @ColumnInfo val trackName: String,
+    @ColumnInfo val artistName: String,
+    @ColumnInfo val collectionName: String,
 
-    val trackPrice: Float,
-    val trackExplicitness: String,
-    val trackTimeMillis: Long,
+    @ColumnInfo val trackPrice: Float,
+    @ColumnInfo val trackExplicitness: String,
+    @ColumnInfo val trackTimeMillis: Long,
 
-    val trackViewUrl: String,
-    val artistViewUrl: String,
-    val collectionViewUrl: String,
+    @ColumnInfo val trackViewUrl: String,
+    @ColumnInfo val artistViewUrl: String,
+    @ColumnInfo val collectionViewUrl: String,
 
-    val artworkUrl100: String,
+    @ColumnInfo val artworkUrl100: String,
 
-    val currency: String,
-    val releaseDate: Date,
-    val primaryGenreName: String
+    @ColumnInfo val currency: String,
+    @ColumnInfo val releaseDate: Date,
+    @ColumnInfo val primaryGenreName: String
 ) : Parcelable
