@@ -1,11 +1,9 @@
-package com.jhaiasi.itunesmusicsearch.ui
+package com.jhaiasi.itunesmusicsearch.data
 
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.jhaiasi.itunesmusicsearch.data.AppDatabase
-import com.jhaiasi.itunesmusicsearch.data.Track
 import com.jhaiasi.itunesmusicsearch.network.MusicService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope

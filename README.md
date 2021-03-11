@@ -17,9 +17,9 @@ Users are able to use the application to do the following
 
 ## Architecture
 This application uses Model-View-ViewModel (MVVM) architecture with the following package structure
-1. [data](https://github.com/jhaiasi/iTunes-Music-Search/tree/dev/app/src/main/java/com/jhaiasi/itunesmusicsearch/data) - Data classes for mapping API responses
+1. [data](https://github.com/jhaiasi/iTunes-Music-Search/tree/dev/app/src/main/java/com/jhaiasi/itunesmusicsearch/data) - Data classes for mapping API responses, data type converters, and database management classes
 2. [di](https://github.com/jhaiasi/iTunes-Music-Search/tree/dev/app/src/main/java/com/jhaiasi/itunesmusicsearch/di) - Dependency provider modules using Dagger
-3. [network](https://github.com/jhaiasi/iTunes-Music-Search/tree/dev/app/src/main/java/com/jhaiasi/itunesmusicsearch/network) - Service for accessing API and JSON converter classes
+3. [network](https://github.com/jhaiasi/iTunes-Music-Search/tree/dev/app/src/main/java/com/jhaiasi/itunesmusicsearch/network) - Service for accessing API
 4. [ui](https://github.com/jhaiasi/iTunes-Music-Search/tree/dev/app/src/main/java/com/jhaiasi/itunesmusicsearch/ui) - View classes, adapters, and their view models
 
 ### Screenshots
@@ -52,17 +52,25 @@ This application uses Model-View-ViewModel (MVVM) architecture with the followin
 }
 ```
 
+### Data Persistence
+The user's last search results and the date and time of when that search occurred are retained so that the user can tell how up to date the data is the next time they return to the app.
+
+The list of music tracks is retained using [Room](https://developer.android.com/jetpack/androidx/releases/room) which was chosen for good synergy with the other Jetpack components.
+
+The date and time of when the last search occurred is retained using [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences) which was chosen because SharedPreferences is a good option to use for primitive data types due to it being very basic and easy to use.
+
 ## Libraries Used
-* [Android KTX](https://developer.android.com/kotlin/ktx): Kotlin extensions for more concise code
-* [AppCompat](https://developer.android.com/topic/libraries/support-library/packages#v7-appcompat): Backward compatibility
-* [Coroutines](https://kotlinlang.org/docs/coroutines-overview.html): Background operations and handling network calls
-* [Dagger](https://dagger.dev/) & [Hilt](https://developer.android.com/training/dependency-injection/hilt-android): Dependency injection
-* [Glide](https://bumptech.github.io/glide/): Image loading
-* [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle): Reactive UI responding to lifecycle events
+* [Android KTX](https://developer.android.com/kotlin/ktx) - Kotlin extensions for more concise code
+* [AppCompat](https://developer.android.com/topic/libraries/support-library/packages#v7-appcompat) - Backward compatibility
+* [Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) - Background operations and handling network calls
+* [Dagger](https://dagger.dev/) & [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) - Dependency injection
+* [Glide](https://bumptech.github.io/glide/) - Image loading
+* [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - Reactive UI responding to lifecycle events
 * [Navigation](https://developer.android.com/guide/navigation) with [SafeArgs](https://developer.android.com/jetpack/androidx/releases/navigation#safe_args): In-app navigation
-* [Retrofit](https://square.github.io/retrofit/) & [OkHttp](https://square.github.io/okhttp/): HTTP client for API calls
+* [Retrofit](https://square.github.io/retrofit/) & [OkHttp](https://square.github.io/okhttp/) - HTTP client for API calls
     * Note that versions [2.6.4](https://github.com/square/retrofit/blob/master/CHANGELOG.md#version-264-2020-01-02) and [3.12.13](https://square.github.io/okhttp/changelog_3x/#version-31213) were used because [later versions do not support Android 4.4](https://github.com/square/okhttp/issues/4481)
     * See [Retrofit 2.7.0 changelog](https://github.com/square/retrofit/blob/master/CHANGELOG.md#version-270-2019-12-09) and [OkHttp 3.13.0 changelog](https://square.github.io/okhttp/changelog_3x/#version-3130) for details
+* [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences) and [Room](https://developer.android.com/jetpack/androidx/releases/room) - Data persistence
 
 ### Gradle Dependencies
 ```kotlin
@@ -79,6 +87,10 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
     implementation "com.google.android.material:material:$rootProject.materialVersion"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutineVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutineVersion"
 
     //Dagger
     implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
@@ -99,6 +111,11 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
 
+    //Room
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+
     testImplementation "junit:junit:$rootProject.junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.testExtVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.testEspressoVersion"
@@ -106,7 +123,7 @@ dependencies {
 ```
 
 ### References
-* [Android MVVM Architecture](https://github.com/MindorksOpenSource/android-mvvm-architecture): Detailed sample app that implements MVVM architecture using Dagger2, Room, RxJava, FastAndroidNetworking, PlaceHolderView and AndroidDebugDatabase
-* [Android Sunflower](https://github.com/android/sunflower): Gardening app illustrating Android development best practices with Android Jetpack
-* [Plaid](https://github.com/nickbutcher/plaid): Showcase of material design that demonstrates the use of material principles to create tactile, bold, understandable UIs
-* [RetrofitKotlinDeferred](https://github.com/navi25/RetrofitKotlinDeferred): Simple to Complex Tutorial for making network calls in Android using Retrofit2, Kotlin and its Deferred Type
+* [Android MVVM Architecture](https://github.com/MindorksOpenSource/android-mvvm-architecture) - Detailed sample app that implements MVVM architecture using Dagger2, Room, RxJava, FastAndroidNetworking, PlaceHolderView and AndroidDebugDatabase
+* [Android Sunflower](https://github.com/android/sunflower) - Gardening app illustrating Android development best practices with Android Jetpack
+* [Plaid](https://github.com/nickbutcher/plaid) - Showcase of material design that demonstrates the use of material principles to create tactile, bold, understandable UIs
+* [RetrofitKotlinDeferred](https://github.com/navi25/RetrofitKotlinDeferred) - Simple to Complex Tutorial for making network calls in Android using Retrofit2, Kotlin and its Deferred Type
