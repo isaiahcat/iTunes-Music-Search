@@ -1,5 +1,6 @@
 # iTunes Music Search
 A simple Master-Detail Android Application using search results from iTunes Store API
+
 iTunes API Documentation: https://affiliate.itunes.apple.com/resources/documentation/itunes-storeweb-service-search-api
 
 <p align="center">
@@ -9,16 +10,21 @@ iTunes API Documentation: https://affiliate.itunes.apple.com/resources/documenta
 </p>
 
 ### Architecture
-This application uses MVVM architecture
+This application uses Model-View-ViewModel (MVVM) architecture with the following package structure
+1. data - Data classes for mapping API responses
+2. di - Dependency provider modules using Dagger
+3. network - Service for accessing API and JSON converter classes
+4. ui - All view classes, adapters, and their view models
 
 ### Screenshots
 <p align="center">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/home.png" width="200">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/search.png" width="200">
-  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/details.png" width="200">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/home.png" width="180">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/search.png" width="180">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/details.png" width="180">
+  <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/no-results.png" width="180">
 </p>
 
-### Sample JSON
+### Sample JSON key-value pairs used for API consumption
 ```
 {
     "trackId": 1440857797,
@@ -40,13 +46,61 @@ This application uses MVVM architecture
 ```
 
 ### Libraries Used
-* OkHttp3
-* Navigation
-* Retrofit2
-* Dagger
-* Hilt
+* [AppCompat](https://developer.android.com/topic/libraries/support-library/packages#v7-appcompat)
+    * Backward compatibility
+* [Coroutines](https://kotlinlang.org/docs/coroutines-overview.html)
+    * Background operations and handling network calls
+* [Dagger](https://dagger.dev/) & [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
+    * Dependency injection
 * [Glide](https://bumptech.github.io/glide/)
     * Image loading
+* [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle)
+    * Reactive UI responding to lifecycle events
+* [Navigation](https://developer.android.com/guide/navigation)
+    * In-app navigation
+* [Retrofit2](https://square.github.io/retrofit/) & [OkHttp3](https://square.github.io/okhttp/)
+    * HTTP client for API calls
+
+### Gradle Dependencies
+```
+// build.gradle(Module: app)
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hiltViewModelVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
+
+    //Dagger
+    implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
+    compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:$rootProject.daggerVersion"
+    kapt "com.squareup.inject:assisted-inject-processor-dagger2:$rootProject.daggerVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
+    kapt "androidx.hilt:hilt-compiler:$rootProject.hiltViewModelVersion"
+
+    //Glide
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+
+    //Retrofit2
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-moshi:$rootProject.retrofitVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$rootProject.retrofitCoroutineAdapterVersion"
+
+    //Okhttp3
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttpVersion"
+
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.testExtVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.testEspressoVersion"
+}
+```
 
 ### References
 * [Android MVVM Architecture](https://github.com/MindorksOpenSource/android-mvvm-architecture)
