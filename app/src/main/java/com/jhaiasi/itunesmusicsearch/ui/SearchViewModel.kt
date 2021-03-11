@@ -6,13 +6,17 @@ import androidx.lifecycle.ViewModel
 import com.jhaiasi.itunesmusicsearch.data.Track
 
 /**
- * The ViewModel for [SearchFragment].
+ * The ViewModel for [SearchFragment]
  */
 class SearchViewModel @ViewModelInject internal constructor(
     private val musicRepository: MusicRepository
 ) : ViewModel() {
 
     val searchResults: LiveData<List<Track>> = musicRepository.getSearchResults()
+
+    init {
+        musicRepository.loadTracksFromDatabase()
+    }
 
     fun searchMusic(keywords: String) = musicRepository.searchMusic(keywords)
 }
