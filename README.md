@@ -60,7 +60,9 @@ This application uses Model-View-ViewModel (MVVM) architecture with the followin
 * [Glide](https://bumptech.github.io/glide/): Image loading
 * [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle): Reactive UI responding to lifecycle events
 * [Navigation](https://developer.android.com/guide/navigation) with [SafeArgs](https://developer.android.com/jetpack/androidx/releases/navigation#safe_args): In-app navigation
-* [Retrofit2](https://square.github.io/retrofit/) & [OkHttp3](https://square.github.io/okhttp/): HTTP client for API calls
+* [Retrofit](https://square.github.io/retrofit/) & [OkHttp](https://square.github.io/okhttp/): HTTP client for API calls
+    * Note that versions [2.6.4](https://github.com/square/retrofit/blob/master/CHANGELOG.md#version-264-2020-01-02) and [3.12.13](https://square.github.io/okhttp/changelog_3x/#version-31213) were used because [later versions do not support Android 4.4](https://github.com/square/okhttp/issues/4481)
+    * See [Retrofit 2.7.0 changelog](https://github.com/square/retrofit/blob/master/CHANGELOG.md#version-270-2019-12-09) and [OkHttp 3.13.0 changelog](https://square.github.io/okhttp/changelog_3x/#version-3130) for details
 
 ### Gradle Dependencies
 ```kotlin
