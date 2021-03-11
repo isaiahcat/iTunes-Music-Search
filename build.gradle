@@ -25,6 +25,7 @@ buildscript {
         okhttpVersion = "3.12.13"
         retrofitVersion = "2.6.4"
         retrofitCoroutineAdapterVersion = "0.9.2"
+        roomVersion = "2.2.6"
 
         // Testing
         junitVersion = "4.13.2"
