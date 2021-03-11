@@ -1,12 +1,10 @@
 # iTunes Music Search
 A simple Master-Detail Android Application using search results from iTunes Store API
 
-iTunes API Documentation
+iTunes API Documentation: [https://affiliate.itunes.apple.com/res/doc/itunes-search-api](https://affiliate.itunes.apple.com/resources/documentation/itunes-storeweb-service-search-api)
 
-https://affiliate.itunes.apple.com/resources/documentation/itunes-storeweb-service-search-api
-
-### Overview
-Users are able to
+## Overview
+Users are able to use the application to do the following
 * Search for music using keywords
 * View track details from the results
 * Go to the iTunes website for song, artist, or collection details
@@ -17,12 +15,12 @@ Users are able to
   <img src="https://github.com/jhaiasi/iTunes-Music-Search/blob/dev/screenshots/search.gif" width="200">
 </p>
 
-### Architecture
+## Architecture
 This application uses Model-View-ViewModel (MVVM) architecture with the following package structure
-1. data - Data classes for mapping API responses
-2. di - Dependency provider modules using Dagger
-3. network - Service for accessing API and JSON converter classes
-4. ui - All view classes, adapters, and their view models
+1. [data](https://github.com/jhaiasi/iTunes-Music-Search/tree/dev/app/src/main/java/com/jhaiasi/itunesmusicsearch/data) - Data classes for mapping API responses
+2. [di](https://github.com/jhaiasi/iTunes-Music-Search/tree/dev/app/src/main/java/com/jhaiasi/itunesmusicsearch/di) - Dependency provider modules using Dagger
+3. [network](https://github.com/jhaiasi/iTunes-Music-Search/tree/dev/app/src/main/java/com/jhaiasi/itunesmusicsearch/network) - Service for accessing API and JSON converter classes
+4. [ui](https://github.com/jhaiasi/iTunes-Music-Search/tree/dev/app/src/main/java/com/jhaiasi/itunesmusicsearch/ui) - View classes, adapters, and their view models
 
 ### Screenshots
 <p align="center">
@@ -54,8 +52,8 @@ This application uses Model-View-ViewModel (MVVM) architecture with the followin
 }
 ```
 
-### Libraries Used
-* [Android KTX](https://developer.android.com/kotlin/ktx): Core Kotlin extensions for more concise code
+## Libraries Used
+* [Android KTX](https://developer.android.com/kotlin/ktx): Kotlin extensions for more concise code
 * [AppCompat](https://developer.android.com/topic/libraries/support-library/packages#v7-appcompat): Backward compatibility
 * [Coroutines](https://kotlinlang.org/docs/coroutines-overview.html): Background operations and handling network calls
 * [Dagger](https://dagger.dev/) & [Hilt](https://developer.android.com/training/dependency-injection/hilt-android): Dependency injection
