@@ -15,10 +15,12 @@ class SearchViewModel @ViewModelInject internal constructor(
 ) : ViewModel() {
 
     val searchResults: LiveData<List<Track>> = musicRepository.getSearchResults()
+    val timestamp: LiveData<String> = musicRepository.getTimestamp()
 
     init {
         viewModelScope.launch {
             musicRepository.loadTracksFromDatabase()
+            musicRepository.loadTimestampFromSharedPref()
         }
     }
 

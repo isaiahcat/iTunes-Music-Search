@@ -11,7 +11,6 @@ import com.jhaiasi.itunesmusicsearch.R
 import com.jhaiasi.itunesmusicsearch.data.Track
 import com.jhaiasi.itunesmusicsearch.databinding.FragmentSearchBinding
 import dagger.hilt.android.AndroidEntryPoint
-import java.text.SimpleDateFormat
 import java.util.*
 
 @AndroidEntryPoint
@@ -36,15 +35,18 @@ class SearchFragment : Fragment(), TrackOnClickListener {
         viewModel.searchResults.observe(viewLifecycleOwner) { results ->
             binding.hasSearchResults = !results.isNullOrEmpty()
 
-            val dateFormat = SimpleDateFormat("EEE MMM dd h:mma", Locale.getDefault())
-            binding.timestamp.text = getString(R.string.timestamp_label)
-                .plus(dateFormat.format(Calendar.getInstance().time))
-
             if (binding.searchList.adapter == null) {
                 adapter = SearchAdapter(results, this@SearchFragment)
                 binding.searchList.adapter = adapter
             } else {
                 adapter.notifyDataSetChanged()
+            }
+        }
+
+        viewModel.timestamp.observe(viewLifecycleOwner) { timestamp ->
+            if (timestamp.isNotBlank()) {
+                binding.timestamp.text = getString(R.string.timestamp_label).plus(timestamp)
+                binding.noResults.isVisible = true
             }
         }
 
@@ -59,10 +61,7 @@ class SearchFragment : Fragment(), TrackOnClickListener {
         searchView.queryHint = getString(R.string.search_hint)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let {
-                    viewModel.searchMusic(it)
-                    binding.noResults.isVisible = true
-                }
+                query?.let { viewModel.searchMusic(it) }
                 return true
             }
 
