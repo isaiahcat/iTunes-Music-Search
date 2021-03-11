@@ -35,7 +35,6 @@ class SearchFragment : Fragment(), TrackOnClickListener {
 
         viewModel.searchResults.observe(viewLifecycleOwner) { results ->
             binding.hasSearchResults = !results.isNullOrEmpty()
-            binding.noResults.isVisible = true
 
             val dateFormat = SimpleDateFormat("EEE MMM dd h:mma", Locale.getDefault())
             binding.timestamp.text = getString(R.string.timestamp_label)
@@ -60,7 +59,10 @@ class SearchFragment : Fragment(), TrackOnClickListener {
         searchView.queryHint = getString(R.string.search_hint)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                query?.let { viewModel.searchMusic(it) }
+                query?.let {
+                    viewModel.searchMusic(it)
+                    binding.noResults.isVisible = true
+                }
                 return true
             }
 
