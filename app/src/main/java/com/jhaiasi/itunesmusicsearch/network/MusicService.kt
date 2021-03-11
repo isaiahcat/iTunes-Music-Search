@@ -1,6 +1,7 @@
 package com.jhaiasi.itunesmusicsearch.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.jhaiasi.itunesmusicsearch.data.DateJsonConverter
 import com.jhaiasi.itunesmusicsearch.data.SearchResponse
 import com.squareup.moshi.Moshi
 import kotlinx.coroutines.Deferred
@@ -31,7 +32,7 @@ interface MusicService {
             .baseUrl(BASE_URL)
             .addConverterFactory(
                 MoshiConverterFactory.create(
-                    Moshi.Builder().add(Date::class.java, DateConverter()).build()
+                    Moshi.Builder().add(Date::class.java, DateJsonConverter()).build()
                 )
             )
             .addCallAdapterFactory(CoroutineCallAdapterFactory())

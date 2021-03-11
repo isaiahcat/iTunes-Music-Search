@@ -3,7 +3,9 @@ package com.jhaiasi.itunesmusicsearch.ui
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.jhaiasi.itunesmusicsearch.data.Track
+import kotlinx.coroutines.launch
 
 /**
  * The ViewModel for [SearchFragment]
@@ -15,7 +17,9 @@ class SearchViewModel @ViewModelInject internal constructor(
     val searchResults: LiveData<List<Track>> = musicRepository.getSearchResults()
 
     init {
-        musicRepository.loadTracksFromDatabase()
+        viewModelScope.launch {
+            musicRepository.loadTracksFromDatabase()
+        }
     }
 
     fun searchMusic(keywords: String) = musicRepository.searchMusic(keywords)

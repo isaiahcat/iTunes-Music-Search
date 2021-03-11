@@ -6,10 +6,10 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface TrackDAO {
+interface TrackDao {
     @Query("SELECT * FROM tracks")
-    fun getTracks(): List<Track>
+    suspend fun getTracks(): List<Track>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(tracks: List<Track>)
+    suspend fun insertAll(tracks: List<Track>)
 }

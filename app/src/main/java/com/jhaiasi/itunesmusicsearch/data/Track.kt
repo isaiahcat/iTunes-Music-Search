@@ -9,8 +9,8 @@ import kotlinx.parcelize.Parcelize
 import java.util.*
 
 @Keep
-@Entity
 @Parcelize
+@Entity(tableName = "tracks")
 data class Track(
     @PrimaryKey val trackId: String,
 

@@ -4,15 +4,17 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 @Database(entities = [Track::class], version = 1)
+@TypeConverters(DateRoomConverter::class)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun trackDao(): TrackDAO
+    abstract fun trackDao(): TrackDao
 
     companion object {
 
-        private const val DATABASE_NAME = "tracks"
+        private const val DATABASE_NAME = "music-database"
 
         // For Singleton instantiation
         @Volatile

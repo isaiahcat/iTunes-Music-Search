@@ -12,6 +12,7 @@ buildscript {
 
         // App dependencies
         appCompatVersion = "1.2.0"
+        coroutineVersion = "1.4.2"
         daggerVersion = "0.5.2"
         glideVersion = "4.10.0"
         gradleVersion = "4.1.2"

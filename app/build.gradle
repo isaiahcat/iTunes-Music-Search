@@ -57,6 +57,10 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
     implementation "com.google.android.material:material:$rootProject.materialVersion"
 
+    //Kotlin Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutineVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutineVersion"
+
     //Dagger
     implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
     compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:$rootProject.daggerVersion"
@@ -78,6 +82,7 @@ dependencies {
 
     //Room
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
 
     testImplementation "junit:junit:$rootProject.junitVersion"

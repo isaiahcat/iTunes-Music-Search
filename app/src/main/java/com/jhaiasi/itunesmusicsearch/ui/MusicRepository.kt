@@ -24,7 +24,8 @@ class MusicRepository @Inject internal constructor(
 
     fun getSearchResults(): LiveData<List<Track>> = _searchResults
 
-    fun loadTracksFromDatabase() = repopulateSearchResults(appDatabase.trackDao().getTracks())
+    suspend fun loadTracksFromDatabase() =
+        repopulateSearchResults(appDatabase.trackDao().getTracks())
 
     fun searchMusic(keywords: String) =
         GlobalScope.launch(Dispatchers.Main) {
