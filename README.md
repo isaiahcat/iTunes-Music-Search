@@ -127,20 +127,3 @@ dependencies {
 * [Android Sunflower](https://github.com/android/sunflower) - Gardening app illustrating Android development best practices with Android Jetpack
 * [Plaid](https://github.com/nickbutcher/plaid) - Showcase of material design that demonstrates the use of material principles to create tactile, bold, understandable UIs
 * [RetrofitKotlinDeferred](https://github.com/navi25/RetrofitKotlinDeferred) - Simple to Complex Tutorial for making network calls in Android using Retrofit2, Kotlin and its Deferred Type
-
-### License
-```
-   Copyright 2021 ISAIAH CATIMPO
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-```
